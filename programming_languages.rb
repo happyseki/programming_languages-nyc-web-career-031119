@@ -8,7 +8,6 @@ languages.each do |style, names|
         new_hash[name]= data
         new_hash[name][:style]= []
         new_hash[name][:style].push(style)
-
        else
         new_hash[name][:style].push(style)
       end
