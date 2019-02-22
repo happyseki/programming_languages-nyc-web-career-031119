@@ -1,18 +1,19 @@
 def reformat_languages(languages)
  new_hash = {}
   languages.each do |kind, data|
-    data.each do |language, type_data|
-      type_data.each do |type, interpretation|
-        if new_hash.empty?
-          new_hash[language] = {type => interpretation, style: [kind]}
-        elsif !new_hash.empty? && language == :javascript
-          new_hash[language][:style] << kind
-        end
+new_hash ={}
+languages.each do |style, names|
+    names.each do |name, data|
+      if !new_hash.has_key?(name)
+        new_hash[name]= data
+        new_hash[name][:style]= []
+        new_hash[name][:style].push(style)
+
+       else
+        new_hash[name][:style].push(style)
       end
     end
   end
-
   new_hash
-
  # your code here
 end
